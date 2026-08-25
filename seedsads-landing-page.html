@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SeedsAds — Digital Marketing That Delivers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#F0136E;
+    --pink-2:#ff4f9a;
+    --purple:#6C2BD9;
+    --blue:#2E5BFF;
+    --navy:#0B0A2A;
+    --navy-2:#141238;
+    --ink:#0F1030;
+    --gray:#6B6C82;
+    --line:#ECEBF3;
+    --bg-soft:#FBFAFD;
+    --pink-grad: linear-gradient(135deg,#FF3D8A 0%,#F0136E 55%,#C2119E 100%);
+    --font-display:'Poppins',sans-serif;
+    --font-body:'Inter',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font-body);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  .wrap{max-width:1260px;margin:0 auto;padding:0 32px;}
+  h1,h2,h3,h4{font-family:var(--font-display);line-height:1.12;letter-spacing:-0.02em;}
+  .eyebrow{font-family:var(--font-body);font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);display:inline-flex;align-items:center;gap:8px;}
+  .eyebrow::before{content:"";width:16px;height:2px;background:var(--pink);border-radius:2px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-body);font-weight:700;font-size:14.5px;padding:14px 26px;border-radius:100px;cursor:pointer;border:none;white-space:nowrap;transition:.25s transform,.25s box-shadow,.25s background;}
+  .btn-pink{background:var(--pink-grad);color:#fff;box-shadow:0 10px 24px -8px rgba(240,19,110,.55);}
+  .btn-pink:hover{transform:translateY(-2px);box-shadow:0 14px 28px -8px rgba(240,19,110,.65);}
+  .btn-outline{background:#fff;color:var(--ink);border:1.5px solid var(--line);}
+  .btn-outline:hover{border-color:var(--ink);}
+  .btn-ghost-dark{background:rgba(255,255,255,.06);color:#fff;border:1.5px solid rgba(255,255,255,.25);}
+  .btn-ghost-dark:hover{background:rgba(255,255,255,.14);}
+  .btn-sm{padding:10px 20px;font-size:13px;}
+  .pink-link{color:var(--pink);font-weight:700;font-size:14.5px;display:inline-flex;align-items:center;gap:6px;}
+  .pink-link svg{transition:.2s transform;}
+  .pink-link:hover svg{transform:translateX(3px);}
+
+  /* ===== HEADER ===== */
+  header{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;max-width:1320px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo .mark{width:30px;height:30px;background:var(--pink-grad);border-radius:8px;transform:rotate(45deg);position:relative;flex:none;}
+  .logo .mark::after{content:"";position:absolute;inset:6px;background:#fff;border-radius:3px;}
+  .logo-text{display:flex;flex-direction:column;line-height:1.05;}
+  .logo-text b{font-family:var(--font-display);font-weight:800;font-size:16.5px;letter-spacing:-.01em;}
+  .logo-text span{font-size:8.5px;letter-spacing:.16em;color:var(--gray);font-weight:600;}
+  .nav-links{display:flex;align-items:center;gap:30px;}
+  .nav-links a{font-size:14.5px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:5px;padding:6px 0;position:relative;}
+  .nav-links a.active{color:var(--pink);}
+  .nav-links a.active::after{content:"";position:absolute;bottom:-3px;left:0;right:0;height:2px;background:var(--pink);border-radius:2px;}
+  .nav-actions{display:flex;align-items:center;gap:12px;}
+  .avatar-dot{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#FFD6E8,#F0136E);border:2px solid #fff;box-shadow:0 0 0 1px var(--line);}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;}
+  .burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;padding:64px 0 40px;overflow:hidden;background:
+    radial-gradient(600px 400px at 88% 10%, rgba(240,19,110,.09), transparent 60%),
+    radial-gradient(500px 400px at 10% 90%, rgba(46,91,255,.08), transparent 60%);}
+  .hero-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:40px;align-items:center;}
+  .hero h1{font-size:56px;font-weight:800;margin:18px 0 20px;}
+  .hero h1 .pink{color:var(--pink);}
+  .hero h1 .blue{color:var(--blue);}
+  .hero p{font-size:16.5px;color:var(--gray);max-width:460px;line-height:1.65;margin-bottom:30px;}
+  .hero-btns{display:flex;gap:14px;margin-bottom:34px;flex-wrap:wrap;}
+  .play-ic{width:18px;height:18px;border-radius:50%;background:var(--ink);display:inline-flex;align-items:center;justify-content:center;}
+  .play-ic svg{width:7px;}
+  .trust-row{display:flex;align-items:center;gap:14px;}
+  .avatars{display:flex;}
+  .avatars img{width:38px;height:38px;border-radius:50%;border:2.5px solid #fff;object-fit:cover;margin-left:-10px;box-shadow:0 2px 6px rgba(0,0,0,.12);}
+  .avatars img:first-child{margin-left:0;}
+  .trust-text b{font-size:13.5px;display:block;}
+  .stars{color:#FFB020;font-size:12px;letter-spacing:1px;}
+  .trust-text small{color:var(--gray);font-size:12px;}
+
+  .hero-visual{position:relative;height:460px;}
+  .device-card{position:absolute;left:6%;top:6%;width:88%;background:var(--navy);border-radius:16px;padding:14px;box-shadow:0 40px 70px -30px rgba(11,10,42,.5);}
+  .device-topbar{display:flex;gap:5px;margin-bottom:10px;padding:0 4px;}
+  .device-topbar i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);}
+  .device-body{background:linear-gradient(160deg,#161536,#0B0A2A);border-radius:10px;padding:16px;}
+  .dev-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+  .dev-row b{color:#fff;font-family:var(--font-display);font-size:13px;}
+  .dev-pill{background:var(--pink-grad);color:#fff;font-size:10px;font-weight:700;padding:5px 10px;border-radius:20px;}
+  .bars{display:flex;align-items:flex-end;gap:6px;height:74px;margin-bottom:10px;}
+  .bars i{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#3A3A6B,#232253);}
+  .bars i.on{background:var(--pink-grad);}
+  .dev-stats{display:flex;gap:10px;}
+  .dev-stats div{flex:1;background:rgba(255,255,255,.05);border-radius:9px;padding:9px 10px;}
+  .dev-stats small{color:rgba(255,255,255,.5);font-size:9.5px;display:block;margin-bottom:3px;}
+  .dev-stats b{color:#fff;font-size:13px;}
+  .float-card{position:absolute;background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 20px 40px -14px rgba(20,15,60,.22);z-index:5;}
+  .float-card small{color:var(--gray);font-size:10.5px;font-weight:600;display:block;}
+  .float-card b{font-family:var(--font-display);font-size:19px;font-weight:800;}
+  .fc-roas{top:2%;left:-4%;}
+  .fc-roas b{color:var(--pink);}
+  .fc-spend{top:6%;right:-6%;text-align:right;}
+  .fc-leads{bottom:10%;left:-8%;display:flex;align-items:center;gap:10px;}
+  .fc-leads .ic{width:34px;height:34px;border-radius:50%;background:#FDE9F1;display:flex;align-items:center;justify-content:center;color:var(--pink);flex:none;}
+  .fc-rev{bottom:2%;right:-4%;text-align:right;}
+  .fc-rev b{color:var(--blue);}
+  .mini-spark{width:70px;height:22px;margin-top:4px;}
+
+  /* trusted logos */
+  .trusted{padding:40px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .trusted-label{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--gray);text-transform:uppercase;margin-bottom:22px;}
+  .logo-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:28px;opacity:.85;}
+  .logo-row .brand{font-family:var(--font-display);font-weight:800;font-size:19px;color:#B9BAC7;display:flex;align-items:center;gap:6px;letter-spacing:-.01em;}
+  .logo-row .brand span{color:var(--pink);}
+
+  /* stats */
+  .stats{padding:52px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .stat-card{border:1px solid var(--line);border-radius:16px;padding:26px 22px;transition:.2s;}
+  .stat-card:hover{border-color:var(--pink);transform:translateY(-3px);}
+  .stat-ic{width:44px;height:44px;border-radius:12px;background:#FDE9F1;color:var(--pink);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .stat-card b{font-family:var(--font-display);font-size:26px;font-weight:800;display:block;}
+  .stat-card span{font-size:13.5px;color:var(--gray);}
+
+  /* services */
+  .section{padding:70px 0;}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:44px;}
+  .section-head h2{font-size:36px;font-weight:800;margin-top:12px;max-width:480px;}
+  .section-head p{color:var(--gray);font-size:15px;max-width:340px;line-height:1.6;margin-bottom:14px;}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .serv-card{border:1px solid var(--line);border-radius:18px;padding:28px 24px;transition:.25s;background:#fff;}
+  .serv-card:hover{box-shadow:0 24px 44px -22px rgba(20,15,60,.22);transform:translateY(-4px);border-color:transparent;}
+  .serv-ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:#fff;}
+  .serv-card h3{font-size:18px;font-weight:700;margin-bottom:10px;}
+  .serv-card ul{margin-bottom:16px;}
+  .serv-card li{font-size:13.5px;color:var(--gray);padding-left:18px;position:relative;margin-bottom:6px;}
+  .serv-card li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:2px;background:var(--pink);}
+
+  /* work dark */
+  .work{background:var(--navy);color:#fff;padding:76px 0;position:relative;overflow:hidden;}
+  .work::before{content:"";position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(240,19,110,.25),transparent 70%);}
+  .work .eyebrow{color:#ff7cb0;}
+  .work .eyebrow::before{background:#ff7cb0;}
+  .work h2{color:#fff;font-size:36px;font-weight:800;margin-top:12px;}
+  .work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px;position:relative;z-index:2;}
+  .work-card{border-radius:16px;overflow:hidden;position:relative;height:300px;}
+  .work-card img{width:100%;height:100%;object-fit:cover;transition:.4s transform;}
+  .work-card:hover img{transform:scale(1.06);}
+  .work-card .overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(6,5,25,.92));display:flex;flex-direction:column;justify-content:flex-end;padding:16px;}
+  .work-card .badge{position:absolute;top:12px;left:12px;background:var(--pink-grad);color:#fff;font-size:11.5px;font-weight:800;padding:5px 10px;border-radius:20px;}
+  .work-card .tag{font-size:10.5px;color:#ff9dc4;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;}
+  .work-card .title{font-size:14.5px;font-weight:700;line-height:1.3;}
+  .dots{display:flex;gap:6px;justify-content:center;margin-top:28px;}
+  .dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.25);}
+  .dots i.on{background:var(--pink);width:20px;border-radius:4px;}
+
+  /* about / dmi / shop */
+  .triple{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:22px;}
+  .tri-card{border:1px solid var(--line);border-radius:20px;padding:30px;}
+  .tri-card .eyebrow{margin-bottom:10px;}
+  .tri-card h3{font-size:22px;font-weight:800;margin-bottom:14px;line-height:1.25;}
+  .about-img{border-radius:16px;overflow:hidden;margin-bottom:20px;height:170px;}
+  .about-img img{width:100%;height:100%;object-fit:cover;}
+  .tri-card li{font-size:13.5px;color:var(--gray);padding-left:20px;position:relative;margin-bottom:9px;}
+  .tri-card li::before{content:"✓";position:absolute;left:0;top:0;color:var(--pink);font-weight:800;font-size:12px;}
+  .tri-card.dmi{background:linear-gradient(160deg,#161536,#0B0A2A);color:#fff;}
+  .tri-card.dmi p{color:rgba(255,255,255,.65);font-size:14px;margin-bottom:20px;line-height:1.6;}
+  .dmi-illust{background:rgba(255,255,255,.06);border-radius:14px;height:110px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:38px;}
+  .tri-card.shop p{color:var(--gray);font-size:14px;margin-bottom:20px;line-height:1.6;}
+  .shop-illust{background:#FDE9F1;border-radius:14px;height:110px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:38px;}
+
+  /* blog */
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .blog-card img{border-radius:16px;height:190px;width:100%;object-fit:cover;margin-bottom:16px;}
+  .blog-tag{display:inline-block;background:#FDE9F1;color:var(--pink);font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:20px;margin-bottom:12px;}
+  .blog-card h3{font-size:16.5px;font-weight:700;line-height:1.35;margin-bottom:12px;}
+  .blog-meta{font-size:12.5px;color:var(--gray);display:flex;gap:10px;align-items:center;}
+
+  /* pricing */
+  .pricing{background:var(--bg-soft);}
+  .price-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:44px;}
+  .toggle{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:100px;padding:5px;}
+  .toggle span{padding:9px 18px;border-radius:100px;font-size:13.5px;font-weight:700;cursor:pointer;color:var(--gray);}
+  .toggle span.active{background:var(--pink-grad);color:#fff;}
+  .price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .price-card{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:30px 26px;display:flex;flex-direction:column;}
+  .price-card.pop{border-color:var(--pink);box-shadow:0 30px 50px -24px rgba(240,19,110,.35);position:relative;transform:translateY(-10px);}
+  .pop-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--pink-grad);color:#fff;font-size:10.5px;font-weight:800;padding:6px 16px;border-radius:20px;letter-spacing:.04em;}
+  .price-card h4{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--pink);margin-bottom:10px;}
+  .price-card .desc{font-size:13px;color:var(--gray);margin-bottom:18px;}
+  .price-card .amount{font-family:var(--font-display);font-size:26px;font-weight:800;margin-bottom:4px;}
+  .price-card .amount span{font-size:13px;color:var(--gray);font-weight:500;}
+  .price-card .whats{font-size:12px;color:var(--gray);margin-bottom:16px;}
+  .price-card ul{margin-bottom:22px;flex:1;}
+  .price-card li{font-size:13px;color:var(--ink);padding-left:20px;position:relative;margin-bottom:10px;}
+  .price-card li::before{content:"✓";position:absolute;left:0;top:0;color:var(--pink);font-weight:800;font-size:11px;}
+
+  /* cta */
+  .cta{background:linear-gradient(120deg,#1A1642,#0B0A2A 60%);color:#fff;border-radius:28px;margin:0 auto;max-width:1260px;padding:50px 50px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;position:relative;overflow:hidden;}
+  .cta::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(240,19,110,.35),transparent 70%);}
+  .cta-left{display:flex;align-items:center;gap:18px;position:relative;z-index:2;}
+  .cta-ic{width:54px;height:54px;border-radius:16px;background:var(--pink-grad);display:flex;align-items:center;justify-content:center;font-size:24px;flex:none;}
+  .cta h2{font-size:26px;font-weight:800;}
+  .cta-btns{display:flex;gap:12px;position:relative;z-index:2;flex-wrap:wrap;}
+
+  /* footer */
+  footer{background:var(--navy);color:rgba(255,255,255,.7);padding:76px 0 26px;margin-top:70px;}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.3fr;gap:30px;margin-bottom:50px;}
+  .foot-logo .logo-text b{color:#fff;}
+  footer p{font-size:13.5px;line-height:1.7;margin:16px 0 20px;max-width:280px;}
+  .soc{display:flex;gap:10px;}
+  .soc a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:13px;}
+  .foot-grid h5{color:#fff;font-size:14px;font-weight:700;margin-bottom:18px;}
+  .foot-grid li{margin-bottom:11px;font-size:13.5px;}
+  .newsletter-box{display:flex;margin-top:10px;border-radius:100px;overflow:hidden;background:rgba(255,255,255,.08);padding:5px;}
+  .newsletter-box input{flex:1;background:transparent;border:none;outline:none;color:#fff;font-size:13px;padding:8px 14px;}
+  .newsletter-box button{width:36px;height:36px;border-radius:50%;background:var(--pink-grad);border:none;color:#fff;cursor:pointer;flex:none;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;font-size:12.5px;text-align:center;color:rgba(255,255,255,.4);}
+
+  /* chat bubble */
+  .chat-fab{position:fixed;bottom:24px;right:24px;z-index:300;display:flex;align-items:center;gap:10px;}
+  .chat-bubble{background:#fff;border-radius:16px 16px 4px 16px;padding:12px 16px;box-shadow:0 14px 30px -10px rgba(20,15,60,.3);font-size:13px;max-width:180px;}
+  .chat-bubble b{display:block;font-size:12.5px;}
+  .chat-icon{width:54px;height:54px;border-radius:50%;background:var(--pink-grad);display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 14px 30px -8px rgba(240,19,110,.55);cursor:pointer;flex:none;}
+
+  /* mobile nav */
+  .mobile-menu{position:fixed;inset:0;background:#fff;z-index:400;display:flex;flex-direction:column;padding:24px 28px;transform:translateX(100%);transition:.35s ease;}
+  .mobile-menu.open{transform:translateX(0);}
+  .mobile-menu-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px;}
+  .mobile-menu a{display:block;font-size:19px;font-weight:700;padding:14px 0;border-bottom:1px solid var(--line);}
+  .mobile-menu .btn{margin-top:26px;width:100%;}
+  .close-x{width:36px;height:36px;border-radius:50%;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;font-size:18px;}
+
+  /* ================= RESPONSIVE ================= */
+  @media(max-width:1080px){
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .work-grid{grid-template-columns:repeat(2,1fr);}
+    .triple{grid-template-columns:1fr;}
+    .blog-grid{grid-template-columns:repeat(3,1fr);}
+    .price-grid{grid-template-columns:repeat(2,1fr);}
+    .price-card.pop{transform:none;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:42px;}
+    .hero-visual{height:380px;margin-top:20px;}
+    .nav-links{display:none;}
+    .burger{display:flex;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(max-width:640px){
+    .wrap{padding:0 20px;}
+    .nav{padding:14px 20px;}
+    .hero{padding:36px 0 30px;}
+    .hero h1{font-size:34px;}
+    .hero p{font-size:15px;}
+    .hero-btns .btn{flex:1;}
+    .hero-visual{height:auto;padding-bottom:120px;}
+    .device-card{position:static;width:100%;margin-bottom:0;}
+    .float-card{display:none;}
+    .float-card.mob-show{display:block;position:static;margin-top:12px;width:fit-content;box-shadow:0 10px 24px -12px rgba(20,15,60,.25);}
+    .mob-float-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
+    .logo-row{justify-content:space-around;gap:20px;}
+    .logo-row .brand{font-size:15px;}
+    .stats-grid{grid-template-columns:1fr 1fr;gap:14px;}
+    .stat-card{padding:18px 16px;}
+    .stat-card b{font-size:21px;}
+    .section{padding:50px 0;}
+    .section-head{flex-direction:column;align-items:flex-start;gap:14px;}
+    .section-head h2{font-size:27px;}
+    .services-grid{grid-template-columns:1fr;}
+    .work-grid{grid-template-columns:1fr 1fr;gap:12px;}
+    .work-card{height:200px;}
+    .work h2{font-size:27px;}
+    .blog-grid{grid-template-columns:1fr;}
+    .price-grid{grid-template-columns:1fr;}
+    .price-card.pop{order:-1;}
+    .cta{padding:34px 24px;border-radius:20px;flex-direction:column;text-align:center;}
+    .cta-left{flex-direction:column;}
+    .cta h2{font-size:21px;}
+    .cta-btns{width:100%;}
+    .cta-btns .btn{flex:1;}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:34px 20px;}
+    .foot-logo{grid-column:1/-1;}
+    .chat-bubble{display:none;}
+    .chat-icon{width:48px;height:48px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="nav">
+    <a href="#" class="logo">
+      <span class="mark"></span>
+      <div class="logo-text"><b>SeedsAds</b><span>GROWTH PARTNER</span></div>
+    </a>
+    <nav class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#services">Services ▾</a>
+      <a href="#work">Our Work</a>
+      <a href="#about">About Us</a>
+      <a href="#blog">Blog</a>
+      <a href="#">Resources ▾</a>
+      <a href="#">DMI</a>
+      <a href="#">Shop</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#" class="btn btn-outline btn-sm">Login</a>
+      <a href="#" class="btn btn-pink btn-sm">Let's Talk ↗</a>
+      <span class="avatar-dot"></span>
+      <button class="burger" id="burgerBtn"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-top">
+    <a href="#" class="logo">
+      <span class="mark"></span>
+      <div class="logo-text"><b>SeedsAds</b><span>GROWTH PARTNER</span></div>
+    </a>
+    <button class="close-x" id="closeMenu">✕</button>
+  </div>
+  <a href="#">Home</a>
+  <a href="#services">Services</a>
+  <a href="#work">Our Work</a>
+  <a href="#about">About Us</a>
+  <a href="#blog">Blog</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#" class="btn btn-pink">Let's Talk ↗</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Digital Marketing That Delivers</span>
+      <h1>We Turn<br><span class="pink">Attention Into</span><br><span class="blue">Growth.</span></h1>
+      <p>Data-driven strategies, creative content and performance marketing that delivers measurable results and real business growth.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn btn-pink">Let's Talk ↗</a>
+        <a href="#" class="btn btn-outline"><span class="play-ic"><svg viewBox="0 0 10 10" fill="#fff"><polygon points="1,0 10,5 1,10"/></svg></span> Watch Showreel</a>
+      </div>
+      <div class="trust-row">
+        <div class="avatars">
+          <img src="https://picsum.photos/seed/face1/80/80" alt="">
+          <img src="https://picsum.photos/seed/face2/80/80" alt="">
+          <img src="https://picsum.photos/seed/face3/80/80" alt="">
+          <img src="https://picsum.photos/seed/face4/80/80" alt="">
+        </div>
+        <div class="trust-text">
+          <b>100+ Brands Trust Us</b>
+          <span class="stars">★★★★★</span> <small>4.9 (120+ Reviews)</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="device-card">
+        <div class="device-topbar"><i></i><i></i><i></i></div>
+        <div class="device-body">
+          <div class="dev-row"><b>Campaign Overview</b><span class="dev-pill">Live</span></div>
+          <div class="bars">
+            <i style="height:35%"></i><i style="height:55%"></i><i class="on" style="height:80%"></i>
+            <i style="height:45%"></i><i class="on" style="height:95%"></i><i style="height:60%"></i>
+            <i style="height:70%"></i><i class="on" style="height:88%"></i>
+          </div>
+          <div class="dev-stats">
+            <div><small>Ad Spend</small><b>$5,300</b></div>
+            <div><small>Revenue</small><b>$28.0k</b></div>
+            <div><small>ROAS</small><b>3.8x</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="float-card fc-roas">
+        <small>ROAS</small><b>3.8X</b>
+        <svg class="mini-spark" viewBox="0 0 70 22"><polyline points="0,18 12,14 24,16 36,8 48,10 60,3 70,5" fill="none" stroke="#F0136E" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="float-card fc-spend"><small>Ad Spend Worth</small><b>$42M+</b></div>
+      <div class="float-card fc-leads">
+        <span class="ic">👥</span>
+        <div><small>Leads Generated</small><b>500K+</b></div>
+      </div>
+      <div class="float-card fc-rev"><small>Revenue Generated</small><b>₦42M+</b></div>
+
+      <div class="mob-float-row">
+        <div class="float-card mob-show"><small>ROAS</small><b style="color:var(--pink)">3.8X</b></div>
+        <div class="float-card mob-show"><small>Leads Generated</small><b>500K+</b></div>
+        <div class="float-card mob-show"><small>Revenue</small><b style="color:var(--blue)">₦42M+</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUSTED LOGOS ============ -->
+<section class="trusted">
+  <div class="wrap">
+    <div class="trusted-label">Trusted By Ambitious Brands</div>
+    <div class="logo-row">
+      <span class="brand">acce<span>ss</span></span>
+      <span class="brand">MTN</span>
+      <span class="brand">JUMIA</span>
+      <span class="brand">FirstBank</span>
+      <span class="brand">DANGOTE</span>
+      <span class="brand">TECNO</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat-card"><div class="stat-ic">💰</div><b>$50M+</b><span>Ad Spend Managed</span></div>
+    <div class="stat-card"><div class="stat-ic">🚀</div><b>500+</b><span>Campaigns Launched</span></div>
+    <div class="stat-card"><div class="stat-ic">👥</div><b>200+</b><span>Brands Grown</span></div>
+    <div class="stat-card"><div class="stat-ic">🌍</div><b>10+</b><span>Countries Reached</span></div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Our Services</span>
+        <h2>End-to-End Growth.<br>Built For Impact.</h2>
+      </div>
+      <div>
+        <p>From strategy to scale, we provide everything your brand needs to grow online and dominate your market.</p>
+        <a href="#" class="pink-link">Explore All Services →</a>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="serv-card">
+        <div class="serv-ic" style="background:#2E5BFF">🔍</div>
+        <h3>SEO &amp; Search Optimization</h3>
+        <ul><li>On-Page SEO</li><li>Technical SEO</li><li>Keyword Research</li><li>Local SEO</li></ul>
+        <a href="#" class="pink-link">Learn More →</a>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ic" style="background:#F0136E">🛒</div>
+        <h3>Lead Generation &amp; Funnels</h3>
+        <ul><li>Landing Pages</li><li>Lead Magnets</li><li>CRM Integration</li></ul>
+        <a href="#" class="pink-link">Learn More →</a>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ic" style="background:#6C2BD9">📣</div>
+        <h3>PPC Advertising</h3>
+        <ul><li>Google Ads</li><li>Meta Ads</li><li>YouTube Ads</li><li>Retargeting</li></ul>
+        <a href="#" class="pink-link">Learn More →</a>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ic" style="background:#00B894">📱</div>
+        <h3>Social Media Marketing</h3>
+        <ul><li>Content Creation</li><li>Community Growth</li><li>Influencer Campaigns</li></ul>
+        <a href="#" class="pink-link">Learn More →</a>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ic" style="background:#FF8A3D">✍️</div>
+        <h3>Content Marketing</h3>
+        <ul><li>Blog Content</li><li>Video Content</li><li>Brand Storytelling</li></ul>
+        <a href="#" class="pink-link">Learn More →</a>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ic" style="background:#2E5BFF">✉️</div>
+        <h3>Email Marketing</h3>
+        <ul><li>Automation Flows</li><li>Newsletter Design</li><li>List Growth</li></ul>
+        <a href="#" class="pink-link">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK (dark) ============ -->
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-head" style="align-items:flex-end;">
+      <div><span class="eyebrow">Our Work</span><h2>Real Results.<br>Real Impact.</h2></div>
+      <a href="#" class="pink-link">View All Case Studies →</a>
+    </div>
+    <div class="work-grid">
+      <div class="work-card">
+        <span class="badge">+320%</span>
+        <img src="https://picsum.photos/seed/ecom1/400/500" alt="">
+        <div class="overlay"><div class="tag">E-Commerce</div><div class="title">From N15M Ad Spend to N42M in Sales</div></div>
+      </div>
+      <div class="work-card">
+        <span class="badge">+250%</span>
+        <img src="https://picsum.photos/seed/perf2/400/500" alt="">
+        <div class="overlay"><div class="tag">Performance Marketing</div><div class="title">Scaling Fashion Brand to 7-Figures Monthly</div></div>
+      </div>
+      <div class="work-card">
+        <span class="badge">+180%</span>
+        <img src="https://picsum.photos/seed/lead3/400/500" alt="">
+        <div class="overlay"><div class="tag">Lead Generation</div><div class="title">Real Estate Leads That Convert</div></div>
+      </div>
+      <div class="work-card">
+        <span class="badge">+200%</span>
+        <img src="https://picsum.photos/seed/brand4/400/500" alt="">
+        <div class="overlay"><div class="tag">Brand Awareness</div><div class="title">Launch Campaign That Broke Records</div></div>
+      </div>
+    </div>
+    <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT / DMI / SHOP ============ -->
+<section class="section" id="about">
+  <div class="wrap triple">
+    <div class="tri-card">
+      <span class="eyebrow">About Us</span>
+      <h3>We're More Than Marketers. We're Growth Partners.</h3>
+      <div class="about-img"><img src="https://picsum.photos/seed/team5/500/340" alt=""></div>
+      <ul>
+        <li>Data-Driven Strategies</li>
+        <li>Creative That Converts</li>
+        <li>Transparent Reporting</li>
+        <li>Results-Driven Approach</li>
+      </ul>
+      <a href="#" class="btn btn-pink btn-sm">Learn More About Us</a>
+    </div>
+    <div class="tri-card dmi">
+      <span class="eyebrow" style="color:#ff7cb0">Our Course Platform</span>
+      <h3>Learn. Implement. Grow. That Build Real Skills.</h3>
+      <div class="dmi-illust">🎓</div>
+      <p>Beginner to advanced courses. Practical, project-based learning. Certification on completion. Learn at your own pace.</p>
+      <a href="#" class="btn btn-pink btn-sm">Explore DMI</a>
+    </div>
+    <div class="tri-card shop">
+      <span class="eyebrow">Shop</span>
+      <h3>Tools, Templates &amp; Resources.</h3>
+      <div class="shop-illust">🛍️</div>
+      <p>Premium digital products and tools to help you scale faster — marketing templates, ebooks &amp; guides, design assets, tools &amp; schemas.</p>
+      <a href="#" class="btn btn-outline btn-sm">Visit Shop</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOG ============ -->
+<section class="section" id="blog">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">Latest Insights</span><h2>Ideas. Trends. Growth Strategies.</h2></div>
+      <a href="#" class="pink-link">View All Articles →</a>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <img src="https://picsum.photos/seed/blog1/500/340" alt="">
+        <span class="blog-tag">Lead Generation</span>
+        <h3>Beating The 7 Errors Of Our Lead Flow Production Machine</h3>
+        <div class="blog-meta"><span>May 29, 2024</span><span>·</span><span>6 min read</span></div>
+      </div>
+      <div class="blog-card">
+        <img src="https://picsum.photos/seed/blog2/500/340" alt="">
+        <span class="blog-tag">Social Media</span>
+        <h3>Adding A TikTok Trend? Gain Access With 4 Simple Steps</h3>
+        <div class="blog-meta"><span>May 19, 2024</span><span>·</span><span>4 min read</span></div>
+      </div>
+      <div class="blog-card">
+        <img src="https://picsum.photos/seed/blog3/500/340" alt="">
+        <span class="blog-tag">Digital Ads</span>
+        <h3>5 Paid Ads Strategies That Actually Work In 2024</h3>
+        <div class="blog-meta"><span>May 15, 2024</span><span>·</span><span>6 min read</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section pricing" id="pricing">
+  <div class="wrap">
+    <div class="price-top">
+      <div><span class="eyebrow">Pricing Plans</span><h2 style="margin-top:12px;font-size:32px;">Choose The Plan That Fits Your Goals.</h2></div>
+      <div class="toggle"><span class="active">Monthly</span><span>Yearly (Save 20%)</span></div>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <h4>Starter</h4>
+        <p class="desc">Perfect for brands just getting started.</p>
+        <div class="amount">₦250,000<span>/month</span></div>
+        <p class="whats">What's included</p>
+        <ul><li>Meta Ads up to ₦5M spend</li><li>Strategy &amp; Setup</li><li>Campaign Management</li><li>Monthly Reporting</li><li>Email Support</li></ul>
+        <a href="#" class="btn btn-outline">Get Started</a>
+      </div>
+      <div class="price-card pop">
+        <span class="pop-badge">MOST POPULAR</span>
+        <h4>Growth</h4>
+        <p class="desc">For growing brands that want scale.</p>
+        <div class="amount">₦500,000<span>/month</span></div>
+        <p class="whats">Everything in Starter, plus</p>
+        <ul><li>Meta Ads up to ₦15M spend</li><li>Advanced Targeting</li><li>Creative Testing</li><li>Conversion Tracking</li><li>Priority Support</li></ul>
+        <a href="#" class="btn btn-pink">Get Started</a>
+      </div>
+      <div class="price-card">
+        <h4>Scale</h4>
+        <p class="desc">For brands that want dominance.</p>
+        <div class="amount">₦1,000,000<span>/month</span></div>
+        <p class="whats">Everything in Growth, plus</p>
+        <ul><li>Dedicated Account Manager</li><li>Advanced Analytics</li><li>24/7 Priority Support</li><li>Quarterly Strategy Call</li></ul>
+        <a href="#" class="btn btn-outline">Get Started</a>
+      </div>
+      <div class="price-card">
+        <h4>Enterprise</h4>
+        <p class="desc">For large businesses that want it all.</p>
+        <div class="amount" style="font-size:22px;">Custom Pricing</div>
+        <p class="whats">Let's build a custom plan for you</p>
+        <ul><li>Dedicated Team</li><li>Custom Reporting</li><li>On-Ground Activation</li></ul>
+        <a href="#" class="btn btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<div class="wrap">
+  <div class="cta">
+    <div class="cta-left">
+      <div class="cta-ic">🚀</div>
+      <div><h2>Ready To Grow Your Business?</h2><p style="color:rgba(255,255,255,.6);font-size:14px;margin-top:6px;">Let's build a strategy that drives real results.</p></div>
+    </div>
+    <div class="cta-btns">
+      <a href="#" class="btn btn-pink">Let's Talk ↗</a>
+      <a href="#" class="btn btn-ghost-dark">📞 Book a Free Call</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-logo">
+        <a href="#" class="logo">
+          <span class="mark"></span>
+          <div class="logo-text"><b>SeedsAds</b><span>GROWTH PARTNER</span></div>
+        </a>
+        <p>We help brands grow through data-driven strategies, creative content and performance marketing that delivers measurable results.</p>
+        <div class="soc"><a href="#">f</a><a href="#">in</a><a href="#">ig</a><a href="#">yt</a></div>
+      </div>
+      <div><h5>Quick Links</h5><ul><li>Home</li><li>Services</li><li>Our Work</li><li>About Us</li><li>Blog</li><li>Pricing</li></ul></div>
+      <div><h5>Services</h5><ul><li>SEO &amp; Search</li><li>Lead Generation</li><li>PPC Advertising</li><li>Social Media Marketing</li><li>Email Marketing</li><li>Content Marketing</li></ul></div>
+      <div><h5>Resources</h5><ul><li>Blog</li><li>Guides &amp; Ebooks</li><li>Case Studies</li><li>Webinars</li><li>Tools</li><li>Templates</li></ul></div>
+      <div>
+        <h5>Newsletter</h5>
+        <p style="margin-top:0;">Get the latest insights and growth strategies straight to your inbox.</p>
+        <div class="newsletter-box"><input type="email" placeholder="Enter your email"><button>→</button></div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 SeedsAds. All rights reserved. · Privacy Policy · Terms of Service</div>
+  </div>
+</footer>
+
+<!-- chat bubble -->
+<div class="chat-fab">
+  <div class="chat-bubble"><b>Hi there!</b>How can we help you grow?</div>
+  <div class="chat-icon">💬</div>
+</div>
+
+<script>
+  const burger=document.getElementById('burgerBtn');
+  const menu=document.getElementById('mobileMenu');
+  const closeMenu=document.getElementById('closeMenu');
+  burger.addEventListener('click',()=>menu.classList.add('open'));
+  closeMenu.addEventListener('click',()=>menu.classList.remove('open'));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+</script>
+</body>
+</html>
