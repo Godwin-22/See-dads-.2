@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — SeedSAds</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.auth-page{min-height:100vh;display:grid;grid-template-columns:1fr 1fr}
+.auth-left{background:linear-gradient(135deg,#1E1B4B 0%,#312E81 50%,#4C1D95 100%);display:flex;flex-direction:column;justify-content:center;padding:60px;color:white;position:relative;overflow:hidden}
+.auth-left::before{content:"";position:absolute;top:-100px;left:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(233,30,99,0.3),transparent 70%)}
+.auth-left::after{content:"";position:absolute;bottom:-100px;right:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(59,130,246,0.3),transparent 70%)}
+.auth-left-content{position:relative;z-index:1}
+.auth-left .logo-text{color:white}
+.auth-left h1{font-size:42px;font-weight:900;margin:48px 0 20px;line-height:1.2}
+.auth-left p{font-size:16px;color:rgba(255,255,255,0.7);line-height:1.7;max-width:400px}
+.auth-stats{display:flex;gap:32px;margin-top:48px}
+.auth-stat h3{font-size:28px;font-weight:800}
+.auth-stat p{font-size:13px;color:rgba(255,255,255,0.6)}
+.auth-right{display:flex;align-items:center;justify-content:center;padding:60px;background:var(--bg-light)}
+.auth-box{background:var(--white);border-radius:20px;padding:48px;width:100%;max-width:440px;border:1px solid #E2E8F0;box-shadow:var(--shadow-lg)}
+.auth-box h2{font-size:28px;font-weight:800;margin-bottom:8px}
+.auth-box>p{color:var(--gray-text);margin-bottom:32px;font-size:15px}
+.auth-box .form-group{margin-bottom:20px}
+.auth-box .form-group label{display:block;font-size:14px;font-weight:600;color:var(--dark-text);margin-bottom:8px}
+.auth-box .form-group input{width:100%;padding:14px 16px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:14px;font-family:inherit;transition:all 0.2s}
+.auth-box .form-group input:focus{outline:none;border-color:var(--primary-purple);box-shadow:0 0 0 3px rgba(124,58,237,0.1)}
+.auth-box .form-group input::placeholder{color:#94A3B8}
+.forgot-password{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;font-size:13px}
+.forgot-password a{color:var(--primary-pink);font-weight:600}
+.btn-full{width:100%;justify-content:center;padding:14px;font-size:15px}
+.auth-divider{display:flex;align-items:center;gap:16px;margin:28px 0;color:var(--gray-text);font-size:13px}
+.auth-divider::before,.auth-divider::after{content:"";flex:1;height:1px;background:#E2E8F0}
+.social-login{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.social-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:10px;border:1.5px solid #E2E8F0;background:white;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s}
+.social-btn:hover{border-color:var(--primary-purple)}
+.auth-footer{text-align:center;margin-top:28px;font-size:14px;color:var(--gray-text)}
+.auth-footer a{color:var(--primary-pink);font-weight:600}
+@media(max-width:900px){.auth-page{grid-template-columns:1fr}.auth-left{display:none}.auth-right{padding:40px 24px}}
+</style>
+</head>
+<body>
+<div class="auth-page">
+<div class="auth-left">
+<div class="auth-left-content">
+<a href="index.html" class="logo">
+<img src="images/logo-icon.png" alt="SeedSAds" class="logo-icon-img" onerror="this.style.display='none'" style="filter:brightness(0) invert(1);">
+<div class="logo-text-block">
+<span class="logo-brand" style="color:white;">Seeds<span>Ads</span></span>
+<span class="logo-tagline" style="color:rgba(255,255,255,0.7);">Grow brands. Grow results.</span>
+</div>
+</a>
+<h1>Welcome Back to<br>SeedSAds</h1>
+<p>Log in to access your dashboard, track campaign performance, manage your courses, and connect with our growth community.</p>
+<div class="auth-stats">
+<div class="auth-stat"><h3>200+</h3><p>Brands Grown</p></div>
+<div class="auth-stat"><h3>12K+</h3><p>Community Members</p></div>
+<div class="auth-stat"><h3>500+</h3><p>Campaigns Launched</p></div>
+</div>
+</div>
+</div>
+<div class="auth-right">
+<div class="auth-box">
+<h2>Sign In</h2>
+<p>Enter your credentials to access your account.</p>
+<form>
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" placeholder="name@company.com" required>
+</div>
+<div class="form-group">
+<label>Password</label>
+<input type="password" placeholder="Enter your password" required>
+</div>
+<div class="forgot-password">
+<label class="checkbox-group" style="display:flex;align-items:center;gap:8px;margin:0;">
+<input type="checkbox" style="width:16px;height:16px;accent-color:var(--primary-pink);">
+<span style="font-size:13px;color:var(--gray-text);">Remember me</span>
+</label>
+<a href="#">Forgot password?</a>
+</div>
+<button type="submit" class="btn btn-primary btn-full">Sign In →</button>
+</form>
+<div class="auth-divider">or continue with</div>
+<div class="social-login">
+<button class="social-btn">🔍 Google</button>
+<button class="social-btn">💼 LinkedIn</button>
+</div>
+<div class="auth-footer">
+Don't have an account? <a href="get-started.html">Create one</a>
+</div>
+</div>
+</div>
+</div>
+</body></html>

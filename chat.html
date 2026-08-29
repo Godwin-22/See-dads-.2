@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SeedSAds Assistant — Chat</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.chat-page { min-height: 100vh; background: var(--bg-light); display: flex; flex-direction: column; }
+.chat-page-header { background: var(--white); border-bottom: 1px solid #E2E8F0; padding: 12px 0; position: sticky; top: 0; z-index: 100; }
+.chat-page-header .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.chat-page-header .logo { display: flex; align-items: center; gap: 10px; }
+.chat-page-header .logo-icon-img { width: 32px; height: 32px; object-fit: contain; border-radius: 6px; }
+.chat-page-header .logo-brand { font-size: 18px; font-weight: 800; color: var(--dark-navy); letter-spacing: -0.5px; }
+.chat-page-header .logo-brand span { background: var(--gradient-pink-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.chat-page-header .logo-tagline { font-size: 10px; color: var(--gray-text); }
+.chat-status { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--gray-text); }
+.chat-status-dot { width: 8px; height: 8px; background: #10B981; border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.chat-container { flex: 1; max-width: 800px; width: 100%; margin: 0 auto; padding: 24px; display: flex; flex-direction: column; gap: 16px; overflow-y: auto; }
+.chat-message { display: flex; gap: 12px; max-width: 85%; animation: fadeInUp 0.3s ease; }
+.chat-message.user { margin-left: auto; flex-direction: row-reverse; }
+.chat-avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.chat-avatar.ai { background: var(--gradient-pink-purple); color: white; }
+.chat-avatar.user { background: var(--light-gray); color: var(--dark-text); }
+.chat-bubble-msg { background: var(--white); padding: 14px 18px; border-radius: 16px; border: 1px solid #E2E8F0; font-size: 14px; line-height: 1.6; color: var(--dark-text); box-shadow: var(--shadow-sm); }
+.chat-message.user .chat-bubble-msg { background: var(--gradient-pink-purple); color: white; border: none; }
+.chat-time { font-size: 11px; color: var(--gray-text); margin-top: 6px; text-align: right; }
+.chat-message.user .chat-time { color: rgba(255,255,255,0.7); }
+.chat-input-area { background: var(--white); border-top: 1px solid #E2E8F0; padding: 16px 0; position: sticky; bottom: 0; }
+.chat-input-area .container { max-width: 800px; display: flex; gap: 12px; align-items: center; padding: 0 24px; }
+.chat-input { flex: 1; padding: 14px 20px; border: 1.5px solid #E2E8F0; border-radius: 12px; font-size: 14px; font-family: inherit; outline: none; transition: all 0.2s; }
+.chat-input:focus { border-color: var(--primary-purple); box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1); }
+.chat-send-btn { width: 48px; height: 48px; border-radius: 12px; background: var(--gradient-pink-purple); color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; flex-shrink: 0; }
+.chat-send-btn:hover { transform: scale(1.05); }
+.chat-suggestions { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.chat-suggestion { padding: 8px 14px; background: var(--white); border: 1px solid #E2E8F0; border-radius: 20px; font-size: 12px; color: var(--gray-text); cursor: pointer; transition: all 0.2s; }
+.chat-suggestion:hover { border-color: var(--primary-pink); color: var(--primary-pink); }
+.typing-indicator { display: flex; gap: 4px; padding: 14px 18px; }
+.typing-indicator span { width: 8px; height: 8px; background: var(--gray-text); border-radius: 50%; animation: typingBounce 1.4s ease-in-out infinite; }
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typingBounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
+@media (max-width: 640px) {
+  .chat-page-header .logo-brand { font-size: 16px; }
+  .chat-page-header .logo-icon-img { width: 28px; height: 28px; }
+  .chat-container { padding: 16px; }
+  .chat-message { max-width: 92%; }
+  .chat-input-area .container { padding: 0 16px; }
+}
+</style>
+</head>
+<body class="chat-page">
+
+<!-- HEADER -->
+<header class="chat-page-header">
+<div class="container">
+<a href="index.html" class="logo">
+<img src="images/logo-icon.png" alt="SeedSAds" class="logo-icon-img" onerror="this.style.display='none'">
+<div class="logo-text-block">
+<span class="logo-brand">Seeds<span>Ads</span></span>
+<span class="logo-tagline">Grow brands. Grow results.</span>
+</div>
+</a>
+<div class="chat-status">
+<div class="chat-status-dot"></div>
+<span>AI Assistant Online</span>
+</div>
+</div>
+</header>
+
+<!-- CHAT MESSAGES -->
+<div class="chat-container" id="chatContainer">
+
+<!-- AI Welcome -->
+<div class="chat-message">
+<div class="chat-avatar ai">🤖</div>
+<div>
+<div class="chat-bubble-msg">
+Hey there! I'm your <strong>SeedSAds Assistant</strong>. 🚀<br><br>
+I can help you with:
+<ul style="margin: 10px 0; padding-left: 18px; list-style: disc;">
+<li style="margin-bottom: 4px; color: inherit;">Marketing strategy & campaign ideas</li>
+<li style="margin-bottom: 4px; color: inherit;">SEO & PPC tips</li>
+<li style="margin-bottom: 4px; color: inherit;">Growth Hub tool recommendations</li>
+<li style="margin-bottom: 4px; color: inherit;">Pricing & service questions</li>
+<li style="margin-bottom: 4px; color: inherit;">General digital marketing advice</li>
+</ul>
+How can I help you grow today?
+</div>
+<div class="chat-time">Just now</div>
+</div>
+</div>
+
+</div>
+
+<!-- SUGGESTIONS -->
+<div class="container" style="max-width:800px;margin:0 auto;padding:0 24px 12px;">
+<div class="chat-suggestions" id="suggestions">
+<div class="chat-suggestion" onclick="sendSuggestion(this)">What services do you offer?</div>
+<div class="chat-suggestion" onclick="sendSuggestion(this)">How much do you charge?</div>
+<div class="chat-suggestion" onclick="sendSuggestion(this)">Tell me about Growth Hub</div>
+<div class="chat-suggestion" onclick="sendSuggestion(this)">I need a marketing audit</div>
+</div>
+</div>
+
+<!-- INPUT -->
+<div class="chat-input-area">
+<div class="container">
+<input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+<button class="chat-send-btn" onclick="sendMessage()" aria-label="Send message">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+</button>
+</div>
+</div>
+
+<script>
+const chatContainer = document.getElementById('chatContainer');
+const chatInput = document.getElementById('chatInput');
+const suggestions = document.getElementById('suggestions');
+
+function getTime() {
+  const now = new Date();
+  return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+function addMessage(text, isUser = false) {
+  const msgDiv = document.createElement('div');
+  msgDiv.className = 'chat-message' + (isUser ? ' user' : '');
+  msgDiv.innerHTML = `
+    <div class="chat-avatar ${isUser ? 'user' : 'ai'}">${isUser ? '👤' : '🤖'}</div>
+    <div>
+      <div class="chat-bubble-msg">${text}</div>
+      <div class="chat-time">${getTime()}</div>
+    </div>
+  `;
+  chatContainer.appendChild(msgDiv);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+function showTyping() {
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'chat-message';
+  typingDiv.id = 'typingIndicator';
+  typingDiv.innerHTML = `
+    <div class="chat-avatar ai">🤖</div>
+    <div class="chat-bubble-msg typing-indicator">
+      <span></span><span></span><span></span>
+    </div>
+  `;
+  chatContainer.appendChild(typingDiv);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+function hideTyping() {
+  const el = document.getElementById('typingIndicator');
+  if (el) el.remove();
+}
+
+function getAIResponse(userText) {
+  const text = userText.toLowerCase();
+  if (text.includes('price') || text.includes('charge') || text.includes('cost') || text.includes('how much')) {
+    return `Our pricing starts at <strong>₦60,000/month</strong> for the Starter plan. We also offer Growth (₦200,000/mo), Pro (₦600,000/mo), and custom Enterprise packages. You can view full details on our <a href="pricing.html" style="color:#E91E63;text-decoration:underline;">Pricing page</a>.`;
+  }
+  if (text.includes('service') || text.includes('offer') || text.includes('do you')) {
+    return `We offer end-to-end digital marketing services including:<br><br>• SEO & Search Optimisation<br>• PPC Advertising (Google, Meta)<br>• Social Media Marketing<br>• Lead Generation & Funnels<br>• Content & Email Marketing<br>• Analytics & CRO<br><br>Explore all services <a href="services.html" style="color:#E91E63;text-decoration:underline;">here</a>.`;
+  }
+  if (text.includes('growth hub') || text.includes('tool') || text.includes('free')) {
+    return `Our <strong>Growth Hub</strong> has 10+ free tools including Website Audit, SEO Checker, ROAS Calculator, AI Ad Copy Generator, UTM Builder, and more. <a href="growth-hub.html" style="color:#E91E63;text-decoration:underline;">Check them out</a>!`;
+  }
+  if (text.includes('audit') || text.includes('review') || text.includes('check')) {
+    return `I'd love to help with a marketing audit! Please <a href="get-started.html" style="color:#E91E63;text-decoration:underline;">book a call</a> with our team and we'll analyse your current performance, identify gaps, and create a growth roadmap for you.`;
+  }
+  if (text.includes('hello') || text.includes('hi') || text.includes('hey')) {
+    return `Hello! 👋 Ready to grow your business? Ask me anything about our services, pricing, or how we can help!`;
+  }
+  if (text.includes('contact') || text.includes('talk') || text.includes('call') || text.includes('reach')) {
+    return `You can reach us by clicking <a href="get-started.html" style="color:#E91E63;text-decoration:underline;">Let's Talk</a> or emailing us directly. Our team typically responds within 24 hours.`;
+  }
+  return `Thanks for reaching out! That's a great question. For the most accurate answer, I'd recommend <a href="get-started.html" style="color:#E91E63;text-decoration:underline;">speaking with our team</a> directly. In the meantime, feel free to browse our <a href="services.html" style="color:#E91E63;text-decoration:underline;">services</a> or <a href="growth-hub.html" style="color:#E91E63;text-decoration:underline;">free tools</a>.`;
+}
+
+function sendMessage() {
+  const text = chatInput.value.trim();
+  if (!text) return;
+
+  addMessage(text, true);
+  chatInput.value = '';
+  suggestions.style.display = 'none';
+
+  showTyping();
+
+  setTimeout(() => {
+    hideTyping();
+    addMessage(getAIResponse(text));
+  }, 1200 + Math.random() * 800);
+}
+
+function sendSuggestion(el) {
+  chatInput.value = el.textContent;
+  sendMessage();
+}
+
+function handleKeyPress(e) {
+  if (e.key === 'Enter') sendMessage();
+}
+</script>
+</body>
+</html>

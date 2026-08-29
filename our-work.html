@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Work — SeedSAds</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.page-hero{padding:140px 0 60px;background:linear-gradient(180deg,#FFFFFF 0%,#F8FAFC 100%);text-align:center}
+.page-hero h1{font-size:48px;font-weight:900;margin-bottom:16px}
+.page-hero p{font-size:18px;color:var(--gray-text);max-width:600px;margin:0 auto}
+.case-studies{padding:60px 0;background:var(--bg-light)}
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.case-card{background:var(--white);border-radius:20px;overflow:hidden;border:1px solid #E2E8F0;transition:all 0.3s}
+.case-card:hover{box-shadow:var(--shadow-xl);transform:translateY(-8px)}
+.case-image{height:280px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.case-image img{width:100%;height:100%;object-fit:cover}
+.case-badge{position:absolute;top:20px;left:20px;background:white;padding:6px 16px;border-radius:20px;font-size:12px;font-weight:700;text-transform:uppercase;z-index:2}
+.case-content{padding:32px}
+.case-content h2{font-size:22px;font-weight:800;margin-bottom:12px}
+.case-content>p{color:var(--gray-text);margin-bottom:24px;line-height:1.7}
+.case-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.case-stat{text-align:center;padding:16px;background:var(--bg-light);border-radius:12px}
+.case-stat h3{font-size:28px;font-weight:800;color:var(--primary-pink)}
+.case-stat p{font-size:12px;color:var(--gray-text)}
+.case-tags{display:flex;gap:8px;flex-wrap:wrap}
+.case-tag{background:var(--bg-light);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;color:var(--gray-text)}
+.results-bar{padding:60px 0;background:var(--white);text-align:center}
+.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:48px}
+.result-item{padding:32px;border-radius:16px;border:1px solid #E2E8F0}
+.result-item h3{font-size:36px;font-weight:900;background:var(--gradient-pink-purple);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.result-item p{font-size:14px;color:var(--gray-text);margin-top:8px}
+.testimonials{padding:80px 0;background:linear-gradient(135deg,#1E1B4B 0%,#312E81 100%);color:white}
+.testimonials h2{text-align:center;font-size:36px;font-weight:800;margin-bottom:48px}
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testimonial-card{background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,0.1)}
+.testimonial-card p{font-size:15px;line-height:1.7;margin-bottom:20px;color:rgba(255,255,255,0.85)}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:var(--gradient-pink-purple);display:flex;align-items:center;justify-content:center;font-weight:700}
+.testimonial-author div h4{font-size:14px;font-weight:700}
+.testimonial-author div p{font-size:12px;color:rgba(255,255,255,0.6);margin:0}
+@media(max-width:768px){.page-hero h1{font-size:32px}.case-grid{grid-template-columns:1fr}.results-grid{grid-template-columns:repeat(2,1fr)}.testimonial-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.case-stats{grid-template-columns:1fr}.results-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+<div class="container">
+<a href="index.html" class="logo">
+<img src="images/logo-icon.png" alt="SeedSAds" class="logo-icon-img" onerror="this.style.display='none'">
+<div class="logo-text-block">
+<span class="logo-brand">Seeds<span>Ads</span></span>
+<span class="logo-tagline">Grow brands. Grow results.</span>
+</div>
+</a>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="our-work.html" class="active">Our Work</a>
+<a href="growth-hub.html">Growth Hub</a>
+<a href="dmi.html">DMI</a>
+<a href="shop.html">Shop</a>
+<a href="insights.html">Insights</a>
+<a href="pricing.html">Pricing</a>
+</div>
+<div class="nav-actions">
+<a href="login.html" class="login">Login</a>
+<a href="get-started.html" class="btn btn-primary btn-sm">Let's Talk →</a>
+</div>
+<button class="mobile-menu-btn" onclick="toggleMenu()">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="our-work.html">Our Work</a>
+<a href="growth-hub.html">Growth Hub</a>
+<a href="dmi.html">DMI</a>
+<a href="shop.html">Shop</a>
+<a href="insights.html">Insights</a>
+<a href="pricing.html">Pricing</a>
+<a href="login.html">Login</a>
+<a href="get-started.html" class="btn btn-primary" style="margin-top:16px">Let's Talk →</a>
+</div>
+
+<section class="page-hero">
+<div class="container">
+<div class="section-label">Our Work</div>
+<h1>Results That <span class="gradient-text">Speak</span></h1>
+<p>Real campaigns. Real brands. Real growth. Explore how we have helped businesses across Africa scale their digital presence.</p>
+</div>
+</section>
+
+<section class="case-studies">
+<div class="container">
+<div class="case-grid">
+<div class="case-card">
+<div class="case-image">
+<div class="case-badge">E-Commerce</div>
+<img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop" alt="E-Commerce Case Study" loading="lazy">
+</div>
+<div class="case-content">
+<h2>From ₦1M Ad Spend to ₦42M in Sales</h2>
+<p>A leading Nigerian e-commerce brand partnered with us to scale their paid acquisition. Through strategic funnel optimisation and multi-channel campaigns, we achieved a 42X return on ad spend within 6 months.</p>
+<div class="case-stats">
+<div class="case-stat"><h3>+260%</h3><p>Sales Increase</p></div>
+<div class="case-stat"><h3>42X</h3><p>ROAS</p></div>
+<div class="case-stat"><h3>₦42M</h3><p>Revenue Generated</p></div>
+</div>
+<div class="case-tags">
+<span class="case-tag">Google Ads</span>
+<span class="case-tag">Facebook Ads</span>
+<span class="case-tag">CRO</span>
+<span class="case-tag">Email Marketing</span>
+</div>
+</div>
+</div>
+
+<div class="case-card">
+<div class="case-image">
+<div class="case-badge" style="color:#E91E63;">Fashion</div>
+<img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&h=400&fit=crop" alt="Fashion Brand Case Study" loading="lazy">
+</div>
+<div class="case-content">
+<h2>Scaling Fashion Brand to 7-Figures Monthly</h2>
+<p>An emerging fashion label needed to break into the competitive online market. We built a complete digital ecosystem—from Instagram content strategy to automated email flows—driving consistent 7-figure monthly revenue.</p>
+<div class="case-stats">
+<div class="case-stat"><h3>+230%</h3><p>ROAS Increase</p></div>
+<div class="case-stat"><h3>7-Figures</h3><p>Monthly Revenue</p></div>
+<div class="case-stat"><h3>150K+</h3><p>Followers Gained</p></div>
+</div>
+<div class="case-tags">
+<span class="case-tag">Social Media</span>
+<span class="case-tag">Influencer</span>
+<span class="case-tag">Email</span>
+<span class="case-tag">SEO</span>
+</div>
+</div>
+</div>
+
+<div class="case-card">
+<div class="case-image">
+<div class="case-badge" style="color:#3B82F6;">Fintech</div>
+<img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=400&fit=crop" alt="Fintech Case Study" loading="lazy">
+</div>
+<div class="case-content">
+<h2>Launch Campaign That Broke Records</h2>
+<p>A fintech startup needed to acquire users rapidly for their app launch. Our integrated campaign across digital channels resulted in over 1.2 million app downloads in the first quarter.</p>
+<div class="case-stats">
+<div class="case-stat"><h3>1.2M+</h3><p>Users Acquired</p></div>
+<div class="case-stat"><h3>₦8.5</h3><p>Cost Per Install</p></div>
+<div class="case-stat"><h3>4.8★</h3><p>App Store Rating</p></div>
+</div>
+<div class="case-tags">
+<span class="case-tag">App Install</span>
+<span class="case-tag">Programmatic</span>
+<span class="case-tag">Creative</span>
+<span class="case-tag">Analytics</span>
+</div>
+</div>
+</div>
+
+<div class="case-card">
+<div class="case-image">
+<div class="case-badge" style="color:#10B981;">Real Estate</div>
+<img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=400&fit=crop" alt="Real Estate Case Study" loading="lazy">
+</div>
+<div class="case-content">
+<h2>From Offline to 4X Lead Growth</h2>
+<p>A traditional real estate developer wanted to transition to digital lead generation. We built their entire digital infrastructure and generated 4X more qualified leads than their previous offline channels.</p>
+<div class="case-stats">
+<div class="case-stat"><h3>4X</h3><p>Lead Growth</p></div>
+<div class="case-stat"><h3>₦12K</h3><p>Cost Per Lead</p></div>
+<div class="case-stat"><h3>35%</h3><p>Conversion Rate</p></div>
+</div>
+<div class="case-tags">
+<span class="case-tag">Lead Gen</span>
+<span class="case-tag">Landing Pages</span>
+<span class="case-tag">Google Ads</span>
+<span class="case-tag">CRM</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="results-bar">
+<div class="container">
+<div class="section-label">By The Numbers</div>
+<h2 style="font-size:36px;font-weight:800;margin-bottom:8px;">Impact That <span class="gradient-text">Adds Up</span></h2>
+<p style="color:var(--gray-text);max-width:500px;margin:0 auto 48px;">Collective results across all client campaigns managed by SeedSAds.</p>
+<div class="results-grid">
+<div class="result-item"><h3>$50M+</h3><p>Ad Spend Managed</p></div>
+<div class="result-item"><h3>500+</h3><p>Campaigns Launched</p></div>
+<div class="result-item"><h3>200+</h3><p>Brands Grown</p></div>
+<div class="result-item"><h3>98%</h3><p>Client Retention</p></div>
+</div>
+</div>
+</section>
+
+<section class="testimonials">
+<div class="container">
+<h2>What Our Clients Say</h2>
+<div class="testimonial-grid">
+<div class="testimonial-card">
+<p>"SeedSAds transformed our digital presence completely. Within 3 months, our online revenue tripled. Their team is responsive, strategic, and genuinely invested in our success."</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">AO</div>
+<div><h4>Adebola Ogunlesi</h4><p>CEO, Luxe Retail NG</p></div>
+</div>
+</div>
+<div class="testimonial-card">
+<p>"The ROI we have seen since partnering with SeedSAds is incredible. They do not just run ads—they build growth systems. Best marketing investment we have ever made."</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">CN</div>
+<div><h4>Chioma Nwosu</h4><p>Founder, Glow Beauty</p></div>
+</div>
+</div>
+<div class="testimonial-card">
+<p>"From strategy to execution, SeedSAds delivered beyond expectations. Our app launch exceeded download targets by 300%. Highly recommend for any serious brand."</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">TK</div>
+<div><h4>Tunde Koleoso</h4><p>CMO, PaySwift</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cta-services" style="background:linear-gradient(135deg,#1E1B4B 0%,#312E81 100%);text-align:center;color:white;padding:80px 0;">
+<div class="container">
+<h2 style="font-size:36px;font-weight:800;margin-bottom:16px;">Want Results Like These?</h2>
+<p style="font-size:16px;color:rgba(255,255,255,0.7);margin-bottom:32px;">Let us create your success story. Book a free consultation today.</p>
+<a href="get-started.html" class="btn btn-primary" style="font-size:16px;padding:14px 32px;">Start Your Project →</a>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<a href="index.html" class="logo" style="margin-bottom:16px;">
+<img src="images/logo-icon.png" alt="SeedSAds" class="logo-icon-img" onerror="this.style.display='none'">
+<div class="logo-text-block">
+<span class="logo-brand">Seeds<span>Ads</span></span>
+<span class="logo-tagline">Grow brands. Grow results.</span>
+</div>
+</a>
+<p>We help ambitious brands grow through performance marketing, creative campaigns, and digital experiences that deliver results.</p>
+<div class="footer-social">
+<a href="#">in</a><a href="#">f</a><a href="#">ig</a><a href="#">𝕏</a><a href="#">▶</a>
+</div>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="get-started.html">About Us</a><a href="get-started.html">Our Team</a><a href="get-started.html">Careers</a>
+<a href="get-started.html">Contact Us</a><a href="get-started.html">Press</a><a href="get-started.html">Partners</a>
+</div>
+<div class="footer-col">
+<h4>Services</h4>
+<a href="services.html">Performance Marketing</a><a href="services.html">Creative & Content</a>
+<a href="services.html">SEO & Search</a><a href="services.html">Social Media Marketing</a>
+<a href="services.html">Web Development</a><a href="services.html">Marketing Automation</a>
+</div>
+<div class="footer-col">
+<h4>Growth Hub</h4>
+<a href="growth-hub.html">Free Tools</a><a href="growth-hub.html">Templates</a>
+<a href="growth-hub.html">Resources</a><a href="growth-hub.html">Calculators</a><a href="growth-hub.html">Checklists</a>
+</div>
+<div class="footer-col">
+<h4>DMI</h4>
+<a href="dmi.html">All Courses</a><a href="dmi.html">Certifications</a>
+<a href="dmi.html">Projects</a><a href="dmi.html">Student Dashboard</a><a href="dmi.html">Become an Instructor</a>
+</div>
+<div class="footer-col">
+<h4>Shop</h4>
+<a href="shop.html">Templates</a><a href="shop.html">Ebooks</a>
+<a href="shop.html">Swipe Files</a><a href="shop.html">Digital Products</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 SeedSAds. All Rights Reserved.</p>
+<div style="display:flex;gap:24px;"><a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a></div>
+</div>
+</div>
+</footer>
+
+<div class="chat-widget">
+<div class="chat-bubble"><h4>SeedSAds Assistant</h4><p>How can I help you grow today? 🚀</p></div>
+<a href="chat.html" class="chat-btn" aria-label="Open chat">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+</a>
+</div>
+
+<script>
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar');
+  navbar.style.boxShadow = window.scrollY > 50 ? '0 4px 20px rgba(0,0,0,0.08)' : 'none';
+});
+</script>
+</body>
+</html>

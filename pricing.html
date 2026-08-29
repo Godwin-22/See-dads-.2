@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — SeedSAds</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.page-hero{padding:140px 0 60px;background:linear-gradient(180deg,#FFFFFF 0%,#F8FAFC 100%);text-align:center}
+.page-hero h1{font-size:48px;font-weight:900;margin-bottom:16px}
+.page-hero p{font-size:18px;color:var(--gray-text);max-width:600px;margin:0 auto}
+.pricing-detail{padding:60px 0;background:var(--bg-light)}
+.pricing-detail-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pricing-detail-card{background:var(--white);border-radius:20px;padding:40px 28px;border:1px solid #E2E8F0;text-align:center;transition:all 0.3s}
+.pricing-detail-card:hover{box-shadow:var(--shadow-lg)}
+.pricing-detail-card.featured{border-color:var(--primary-pink);position:relative;transform:scale(1.02)}
+.pricing-detail-card.featured::before{content:"Most Popular";position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gradient-pink-purple);color:white;padding:6px 20px;border-radius:20px;font-size:12px;font-weight:700}
+.pricing-detail-card h3{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.pricing-detail-card .desc{font-size:13px;color:var(--gray-text);margin-bottom:20px}
+.pricing-detail-card .price{font-size:40px;font-weight:900;color:var(--dark-text);margin:16px 0}
+.pricing-detail-card .price span{font-size:16px;font-weight:400;color:var(--gray-text)}
+.pricing-detail-card ul{text-align:left;margin:24px 0}
+.pricing-detail-card ul li{font-size:14px;color:var(--gray-text);margin-bottom:12px;padding-left:24px;position:relative}
+.pricing-detail-card ul li::before{content:"✓";position:absolute;left:0;color:#10B981;font-weight:700}
+.pricing-detail-card .btn{width:100%;justify-content:center;padding:14px}
+.compare-section{padding:80px 0;background:var(--white);overflow-x:auto}
+.compare-table{width:100%;border-collapse:collapse;min-width:600px}
+.compare-table th{padding:16px;text-align:left;font-size:14px;font-weight:700;color:var(--gray-text);border-bottom:2px solid #E2E8F0}
+.compare-table td{padding:16px;font-size:14px;border-bottom:1px solid #E2E8F0}
+.compare-table tr:hover{background:var(--bg-light)}
+.faq-section{padding:80px 0;background:var(--bg-light)}
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px}
+.faq-item{background:var(--white);border-radius:16px;padding:24px;border:1px solid #E2E8F0}
+.faq-item h3{font-size:16px;font-weight:700;margin-bottom:10px}
+.faq-item p{font-size:14px;color:var(--gray-text);line-height:1.6}
+@media(max-width:1024px){.pricing-detail-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:768px){.page-hero h1{font-size:32px}.pricing-detail-grid{grid-template-columns:1fr}.faq-grid{grid-template-columns:1fr}.pricing-detail-card.featured{transform:none}}
+</style>
+</head>
+<body>
+<nav class="navbar"><div class="container"><a href="index.html" class="logo">
+<img src="images/logo-icon.png" alt="SeedSAds" class="logo-icon-img" onerror="this.style.display='none'">
+<div class="logo-text-block">
+<span class="logo-brand">Seeds<span>Ads</span></span>
+<span class="logo-tagline">Grow brands. Grow results.</span>
+</div>
+</a><div class="nav-links"><a href="index.html">Home</a><a href="services.html">Services</a><a href="our-work.html">Our Work</a><a href="growth-hub.html">Growth Hub</a><a href="dmi.html">DMI</a><a href="shop.html">Shop</a><a href="insights.html">Insights</a><a href="pricing.html" class="active">Pricing</a></div><div class="nav-actions"><a href="login.html" class="login">Login</a><a href="get-started.html" class="btn btn-primary btn-sm">Let's Talk →</a></div><button class="mobile-menu-btn" onclick="toggleMenu()"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div></nav>
+<div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="our-work.html">Our Work</a><a href="growth-hub.html">Growth Hub</a><a href="dmi.html">DMI</a><a href="shop.html">Shop</a><a href="insights.html">Insights</a><a href="pricing.html">Pricing</a><a href="login.html">Login</a><a href="get-started.html" class="btn btn-primary" style="margin-top:16px">Let's Talk →</a></div>
+
+<section class="page-hero"><div class="container"><div class="section-label">Pricing</div><h1>Simple, Transparent <span class="gradient-text">Pricing</span></h1><p>Choose the plan that fits your growth goals. All plans include dedicated support and regular strategy reviews.</p></div></section>
+
+<section class="pricing-detail"><div class="container">
+<div class="pricing-detail-grid">
+<div class="pricing-detail-card"><h3>Starter</h3><p class="desc">Perfect for startups</p><div class="price">₦60,000<span>/mo</span></div><ul><li>SEO & Social Media</li><li>Monthly Reports</li><li>Email Support</li><li>1 Campaign Channel</li><li>Basic Analytics</li><li>Quarterly Review</li></ul><a href="get-started.html" class="btn btn-blue">Get Started</a></div>
+<div class="pricing-detail-card featured"><h3>Growth</h3><p class="desc">Best for growing brands</p><div class="price">₦200,000<span>/mo</span></div><ul><li>Full-Service Marketing</li><li>Advanced Reporting</li><li>Priority Support</li><li>3 Campaign Channels</li><li>Custom Dashboard</li><li>Bi-Weekly Review</li><li>A/B Testing</li></ul><a href="get-started.html" class="btn btn-primary">Get Started</a></div>
+<div class="pricing-detail-card"><h3>Pro</h3><p class="desc">For established brands</p><div class="price">₦600,000<span>/mo</span></div><ul><li>Custom Strategy</li><li>Dedicated Team</li><li>All Ad Channels</li><li>Advanced Analytics</li><li>Weekly Review</li><li>CRO & Testing</li><li>Content Creation</li></ul><a href="get-started.html" class="btn btn-blue">Get Started</a></div>
+<div class="pricing-detail-card"><h3>Enterprise</h3><p class="desc">For large organisations</p><div class="price" style="font-size:24px;margin:28px 0;">Custom Pricing</div><ul><li>Tailored Solutions</li><li>Dedicated Manager</li><li>Scalable Growth</li><li>White-Label Reports</li><li>API Access</li><li>SLA Guarantee</li><li>Custom Integrations</li></ul><a href="get-started.html" class="btn btn-outline">Let's Talk</a></div>
+</div>
+</div></section>
+
+<section class="compare-section"><div class="container"><div style="text-align:center;margin-bottom:48px;"><div class="section-label">Compare Plans</div><h2 style="font-size:36px;font-weight:800;">Plan <span class="gradient-text">Comparison</span></h2></div>
+<table class="compare-table">
+<tr><th>Feature</th><th>Starter</th><th>Growth</th><th>Pro</th><th>Enterprise</th></tr>
+<tr><td>SEO & Search</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Social Media</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>PPC Advertising</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Email Marketing</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Content Creation</td><td>—</td><td>Basic</td><td>✓</td><td>✓</td></tr>
+<tr><td>A/B Testing</td><td>—</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Dedicated Team</td><td>—</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Custom Integrations</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>Support Response</td><td>48h</td><td>24h</td><td>12h</td><td>4h</td></tr>
+</table>
+</div></section>
+
+<section class="faq-section"><div class="container"><div style="text-align:center;margin-bottom:16px;"><div class="section-label">FAQ</div></div><h2 style="text-align:center;font-size:36px;font-weight:800;margin-bottom:8px;">Frequently Asked <span class="gradient-text">Questions</span></h2><p style="text-align:center;color:var(--gray-text);max-width:500px;margin:0 auto 48px;">Everything you need to know about our pricing and services.</p>
+<div class="faq-grid">
+<div class="faq-item"><h3>Can I switch plans later?</h3><p>Yes, you can upgrade or downgrade your plan at any time. Changes take effect at the start of your next billing cycle.</p></div>
+<div class="faq-item"><h3>Is there a setup fee?</h3><p>No setup fees for Starter, Growth, or Pro plans. Enterprise clients may have a one-time onboarding fee depending on complexity.</p></div>
+<div class="faq-item"><h3>What payment methods do you accept?</h3><p>We accept bank transfers, card payments, and Paystack. Enterprise clients can also pay via invoice with net-30 terms.</p></div>
+<div class="faq-item"><h3>Do you offer refunds?</h3><p>We offer a 14-day money-back guarantee on all plans. If you are not satisfied, contact us for a full refund.</p></div>
+<div class="faq-item"><h3>How long are the contracts?</h3><p>All plans are month-to-month with no long-term commitment. Annual plans receive a 20% discount.</p></div>
+<div class="faq-item"><h3>Can I get a custom quote?</h3><p>Absolutely. Contact our team for a tailored proposal based on your specific needs and goals.</p></div>
+</div>
+</div></section>
+
+<section style="padding:80px 0;background:linear-gradient(135deg,#1E1B4B 0%,#312E81 100%);text-align:center;color:white;"><div class="container"><h2 style="font-size:36px;font-weight:800;margin-bottom:16px;">Still Have Questions?</h2><p style="font-size:16px;color:rgba(255,255,255,0.7);margin-bottom:32px;">Our team is happy to help you find the perfect plan for your business.</p><a href="get-started.html" class="btn btn-primary" style="font-size:16px;padding:14px 32px;">Contact Sales →</a></div></section>
+
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a href="index.html" class="logo" style="margin-bottom:16px;">
+<img src="images/logo-icon.png" alt="SeedSAds" class="logo-icon-img" onerror="this.style.display='none'">
+<div class="logo-text-block">
+<span class="logo-brand">Seeds<span>Ads</span></span>
+<span class="logo-tagline">Grow brands. Grow results.</span>
+</div>
+</a><p>We help ambitious brands grow through performance marketing, creative campaigns, and digital experiences that deliver results.</p><div class="footer-social"><a href="#">in</a><a href="#">f</a><a href="#">ig</a><a href="#">𝕏</a><a href="#">▶</a></div></div><div class="footer-col"><h4>Company</h4><a href="get-started.html">About Us</a><a href="get-started.html">Our Team</a><a href="get-started.html">Careers</a><a href="get-started.html">Contact Us</a><a href="get-started.html">Press</a><a href="get-started.html">Partners</a></div><div class="footer-col"><h4>Services</h4><a href="services.html">Performance Marketing</a><a href="services.html">Creative & Content</a><a href="services.html">SEO & Search</a><a href="services.html">Social Media Marketing</a><a href="services.html">Web Development</a><a href="services.html">Marketing Automation</a></div><div class="footer-col"><h4>Growth Hub</h4><a href="growth-hub.html">Free Tools</a><a href="growth-hub.html">Templates</a><a href="growth-hub.html">Resources</a><a href="growth-hub.html">Calculators</a><a href="growth-hub.html">Checklists</a></div><div class="footer-col"><h4>DMI</h4><a href="dmi.html">All Courses</a><a href="dmi.html">Certifications</a><a href="dmi.html">Projects</a><a href="dmi.html">Student Dashboard</a><a href="dmi.html">Become an Instructor</a></div><div class="footer-col"><h4>Shop</h4><a href="shop.html">Templates</a><a href="shop.html">Ebooks</a><a href="shop.html">Swipe Files</a><a href="shop.html">Digital Products</a></div></div><div class="footer-bottom"><p>© 2024 SeedSAds. All Rights Reserved.</p><div style="display:flex;gap:24px;"><a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a></div></div></div></footer>
+<div class="chat-widget"><div class="chat-bubble"><h4>SeedSAds Assistant</h4><p>How can I help you grow today? 🚀</p></div><a href="chat.html" class="chat-btn" aria-label="Open chat"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a></div>
+<script>function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('active');}window.addEventListener('scroll',function(){const n=document.querySelector('.navbar');n.style.boxShadow=window.scrollY>50?'0 4px 20px rgba(0,0,0,0.08)':'none';});</script>
+</body></html>
